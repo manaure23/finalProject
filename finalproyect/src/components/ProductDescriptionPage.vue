@@ -35,6 +35,7 @@ export default {
 #product-description{
   display: inline-flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   margin-top: 30px;
   width: 100%;
 }
@@ -86,5 +87,37 @@ export default {
   margin-top: 18px;
   margin-bottom: 18px;
 }
+@media (max-width: 375px){
+  #img{
+    margin: 0px;
+    width: 375px;
+    height: 350px;
+  }
+  .img-main{
+    width: 320px;
+    height: 340px;
+  }
+  #description{
+    width: 375px;
+    height: 370px;
+    margin-top: 10px;
+  }
+  .text-description{
+    margin-left: 10px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+  }
+  #n-size{
+    margin-left: 25px;
+    width: 320px;
+  }
+  #add-favorite{
+    width: 375;
+  }
+  #add{
+    margin-left: 15px;
+  }
+}
+
 
 </style>

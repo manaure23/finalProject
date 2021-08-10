@@ -58,6 +58,7 @@ export default {
 .menu-filter-buttons{
   display: inline-flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   padding: 0px;
   width: 100%;
 }
@@ -69,7 +70,7 @@ export default {
   background-color: rgba(90, 90, 250, 0.144);
 }
 #items{
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 30px;
@@ -94,5 +95,19 @@ a{
 .img-provisional{
     width: 160px;
     height: 190px;
+}
+@media (max-width: 375px){
+  #items{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .product-card{
+    margin-left: 60px;
+  }
+  .filter-button{
+    width: 250px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
 }
 </style>

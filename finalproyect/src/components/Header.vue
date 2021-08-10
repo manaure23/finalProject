@@ -32,6 +32,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   background-color: rgba(90, 90, 250, 0.226);
 }
 h1{
@@ -74,6 +75,21 @@ ul li{
 }
 a{
   text-decoration: none;
+}
+@media (max-width: 375px){
+  .genders{
+    width: 190px;
+    margin-left: 10px;
+  }
+  .gender-button{
+    width: 70px;
+  }
+  .user-buttons{
+    width: 90px;
+  }
+  .icons{
+    width: 30px;
+  }
 }
 
 </style>

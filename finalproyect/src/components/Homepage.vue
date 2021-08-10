@@ -44,6 +44,7 @@ export default {
 #novelties{
   display: inline-flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 80%;
   margin-left: 10px;
   margin-bottom: 50px;
@@ -61,5 +62,23 @@ a{
 .img-provisional{
     width: 170px;
     height: 200px;
+}
+@media (max-width: 375px){
+  .commercial{
+    width: 70%;
+    height: 150px;
+    margin-left: 0px;
+  }
+  .h2-titles{
+    text-align: center;
+    margin-left: 0px;
+  }
+  #novelty{
+    align-items: center;
+    width: 300px;
+  }
+  .novelty-card{
+    margin-left: 60px;
+  }
 }
 </style>

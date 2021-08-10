@@ -58,6 +58,7 @@ export default {
 .menu-filter-buttons{
   display: inline-flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   padding: 0px;
   width: 100%;
 }
@@ -95,5 +96,19 @@ a{
     width: 160px;
     height: 190px;
 } 
+@media (max-width: 375px){
+  #items{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .product-card{
+    margin-left: 60px;
+  }
+  .filter-button{
+    width: 250px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+}
 
 </style>

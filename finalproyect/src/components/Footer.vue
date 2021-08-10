@@ -2,7 +2,7 @@
   <div>
       <footer>
         <section id="rrss">
-            <a href="#"><img class="icons-rrss" src="../assets/Icons/github.svg" alt=""></a>
+            <a href="https://github.com/manaure23" target="_blank"><img class="icons-rrss" src="../assets/Icons/github.svg" alt=""></a>
             <a href="#"><img class="icons-rrss" src="../assets/Icons/twitter.svg" alt=""></a>
             <a href="#"><img class="icons-rrss" src="../assets/Icons/whatsapp.svg" alt=""></a>
             <a href="#"><img class="icons-rrss" src="../assets/Icons/mail.svg" alt=""></a>
@@ -47,6 +47,11 @@ footer{
     color: black;
     font-size: 20px;
     margin-bottom: 10px;
+}
+@media (max-width: 375px){
+    #about-us{
+        flex-direction: column;
+    }
 }
 
 </style>

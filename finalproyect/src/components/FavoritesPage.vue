@@ -71,5 +71,18 @@ a{
     color: black;
     font-size: 30px;
 }
+@media (max-width: 375px){
+  #favorites-title{
+    text-align: center;
+    margin-left: 0px;
+  }
+  #favorites-items{
+    margin-left: 0px;
+  }
+  .favorite-card{
+    margin-left: 40px;
+  }
+ 
+}
 
 </style>
