@@ -4,16 +4,16 @@
     <h2 class="h2-titles">Novedades</h2>
     <section id="novelties">
         <div class="novelty-card">
-            <a href="#"><img src="../assets/Icons/zapatillas.svg" class="img-provisional" alt=""> zapatillas</a>
+            <router-link to="/product-description-section"><img src="../assets/Icons/zapatillas.svg" class="img-provisional" alt=""> zapatilla</router-link>
         </div>
         <div class="novelty-card">
-            <a href="#"><img src="../assets/Icons/pantalones-deportivos.svg" class="img-provisional" alt=""> pantalones</a>
+            <router-link to="/product-description-section"><img src="../assets/Icons/pantalones-deportivos.svg" class="img-provisional" alt=""> pantalon</router-link>
         </div>
         <div class="novelty-card">
-            <a href="#"><img src="../assets/Icons/camiseta.svg" class="img-provisional" alt=""> camiseta</a>
+            <router-link to="/product-description-section"><img src="../assets/Icons/camiseta.svg" class="img-provisional" alt=""> camiseta</router-link>
         </div>
         <div class="novelty-card">
-            <a href="#"><img src="../assets/Icons/abrigo-largo.svg" class="img-provisional" alt=""> abrigo</a>
+            <router-link to="/product-description-section"><img src="../assets/Icons/abrigo-largo.svg" class="img-provisional" alt=""> abrigo</router-link>
         </div>
     </section>
   </div>

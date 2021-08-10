@@ -2,14 +2,14 @@
   <div>
     <header>
         <div class="principal">
-          <h1>nombre empresa</h1>
+          <router-link to="/"><h1>nombre empresa</h1></router-link>
           <nav class="genders">
-            <a class="gender-button" href="#">Hombre</a>
-            <a class="gender-button" href="#">Mujer</a>
+            <router-link class="gender-button" to="/man-section">Hombre</router-link>
+            <router-link class="gender-button" to="/woman-section">Mujer</router-link>
           </nav>
           <ul class="user-buttons">
-            <li><a href="#"><img class="icons" src="../assets/Icons/favorite.svg" alt=""></a></li>
-            <li><a href="#"><img class="icons" src="../assets/Icons/shoppingCart.svg" alt=""></a></li>
+            <li><router-link to="/favorites-section"><img class="icons" src="../assets/Icons/favorite.svg" alt=""></router-link></li>
+            <li><router-link to="/shopping-cart-section"><img class="icons" src="../assets/Icons/shoppingCart.svg" alt=""></router-link></li>
           </ul>
         </div>
     </header>
