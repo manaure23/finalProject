@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <section id="shoppingCart">
     <Header/>
     <ShoppingCartPage/>
     <Footer/>
-  </div>
+  </section>
 
 </template>
 

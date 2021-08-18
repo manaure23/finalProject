@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <section id="productDescription">
     <Header/>
     <ProductDescriptionPage/>
     <Footer/>
-  </div>
+  </section>
 </template>
 
 <script>

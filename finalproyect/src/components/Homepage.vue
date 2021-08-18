@@ -1,32 +1,76 @@
 <template>
   <div>
-    <a href="#"><img class="commercial" src="../assets/commercialImg.png" alt=""></a> 
+    <a href="#"
+      ><img class="commercial" src="../assets/commercialImg.png" alt=""
+    /></a>
     <h2 class="h2-titles">Novedades</h2>
     <section id="novelties">
-        <div class="novelty-card">
-            <router-link to="/product-description-section"><img src="../assets/Icons/zapatillas.svg" class="img-provisional" alt=""> zapatilla</router-link>
-        </div>
-        <div class="novelty-card">
-            <router-link to="/product-description-section"><img src="../assets/Icons/pantalones-deportivos.svg" class="img-provisional" alt=""> pantalon</router-link>
-        </div>
-        <div class="novelty-card">
-            <router-link to="/product-description-section"><img src="../assets/Icons/camiseta.svg" class="img-provisional" alt=""> camiseta</router-link>
-        </div>
-        <div class="novelty-card">
-            <router-link to="/product-description-section"><img src="../assets/Icons/abrigo-largo.svg" class="img-provisional" alt=""> abrigo</router-link>
-        </div>
+      <div
+        v-for="novelty in noveltySection"
+        :key="novelty"
+        class="novelty-card"
+      >
+        <router-link
+          :to="{
+            name: 'ProductDescriptionSection',
+            params: {
+              id: novelty.id,
+              img: novelty.img,
+              brand: novelty.brand,
+              price: novelty.price,
+              name: novelty.name,
+              color: novelty.color,
+              type: novelty.type,
+              sizes: novelty.sizes,
+            },
+          }"
+          ><img
+            :src="novelty.img"
+            class="img-provisional"
+            :alt="novelty.name"
+          />
+          <p class="item-name">{{ novelty.name }}</p>
+          <p class="item-type">{{ novelty.type }} - {{ novelty.gender }}</p>
+        </router-link>
+      </div>
     </section>
   </div>
 </template>
 
 <script>
+import { womanproducts } from "../assets/Data/Products.json";
+import { manproducts } from "../assets/Data/Products.json";
 export default {
-
-}
+  name: "Homepage",
+  data() {
+    return {
+      noveltySection: [],
+      items: womanproducts,
+      items2: manproducts,
+    };
+  },
+  mounted() {
+    function getNumberRandom(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+    for (var i = 0; i < 2; i++) {
+      var a = getNumberRandom(0, 8);
+      console.log(a);
+      console.log(this.items[a]);
+      this.noveltySection.push(this.items[a]);
+    }
+    console.log(this.noveltySection);
+    for (var index = 0; index < 2; index++) {
+      var al = getNumberRandom(0, 8);
+      this.noveltySection.push(this.items2[al]);
+    }
+    console.log(this.noveltySection);
+  },
+};
 </script>
 
 <style scoped>
-.commercial{
+.commercial {
   border: 2px solid rgba(90, 90, 250, 0.39);
   border-radius: 12px;
   width: 80%;
@@ -34,14 +78,14 @@ export default {
   margin-left: 50px;
   margin-top: 50px;
 }
-.h2-titles{
+.h2-titles {
   margin-top: 50px;
   margin-left: 20px;
   margin-bottom: 20px;
   text-align: left;
   font-size: 40px;
 }
-#novelties{
+#novelties {
   display: inline-flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -49,36 +93,63 @@ export default {
   margin-left: 10px;
   margin-bottom: 50px;
 }
-.novelty-card{
+.novelty-card {
   text-align: center;
   width: 180px;
   height: 250px;
 }
-a{
-    text-decoration: none;
-    color: black;
-    font-size: 30px;
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
 }
-.img-provisional{
-    width: 170px;
-    height: 200px;
+.img-provisional {
+  width: 170px;
+  height: 200px;
 }
-@media (max-width: 375px){
-  .commercial{
+.item-name {
+  font-size: 19px;
+  margin: 0px;
+}
+.item-type {
+  font-size: 15px;
+  color: rgba(56, 56, 56, 0.699);
+}
+@media (max-width: 450px) {
+  .commercial {
     width: 70%;
     height: 150px;
     margin-left: 0px;
   }
-  .h2-titles{
+  .h2-titles {
     text-align: center;
     margin-left: 0px;
   }
-  #novelty{
+  #novelty {
     align-items: center;
     width: 300px;
   }
-  .novelty-card{
+  .novelty-card {
     margin-left: 60px;
+  }
+}
+@media (min-width: 451px) and (max-width: 968px) {
+  .commercial {
+    margin-left: 0px;
+    height: 290px;
+  }
+  #novelties {
+    justify-content: space-around;
+    width: 100%;
+    margin-left: 0px;
+  }
+  .novelty-card {
+    width: 115px;
+    height: 280px;
+  }
+  .img-provisional {
+    width: 115px;
+    height: 175px;
   }
 }
 </style>

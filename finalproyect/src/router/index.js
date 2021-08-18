@@ -1,50 +1,51 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import ManSection from '../views/ManSection.vue'
-import WomanSection from '../views/WomanSection.vue'
-import ProductDescriptionSection from '../views/ProductDescriptionSection.vue'
-import ShoppingCartSection from '../views/ShoppingCartSection.vue'
-import FavoritesSection from '../views/FavoritesSection.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/Home.vue";
+import ManSection from "../views/ManSection.vue";
+import WomanSection from "../views/WomanSection.vue";
+import ProductDescriptionSection from "../views/ProductDescriptionSection.vue";
+import ShoppingCartSection from "../views/ShoppingCartSection.vue";
+import FavoritesSection from "../views/FavoritesSection.vue";
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/man-section',
-    name: 'ManSection',
+    path: "/man-section",
+    name: "ManSection",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: ManSection
+    component: ManSection,
   },
   {
-    path: '/woman-section',
-    name: 'WomanSection',
-    component: WomanSection
+    path: "/woman-section",
+    name: "WomanSection",
+    component: WomanSection,
   },
   {
-    path: '/product-description-section',
-    name: 'ProductDescriptionSection',
-    component: ProductDescriptionSection
+    path: "/product-description-section/:id",
+    name: "ProductDescriptionSection",
+    component: ProductDescriptionSection,
+    props: true,
   },
   {
-    path: '/shopping-cart-section',
-    name: 'ShoppingCartSection',
-    component: ShoppingCartSection
+    path: "/shopping-cart-section",
+    name: "ShoppingCartSection",
+    component: ShoppingCartSection,
   },
   {
-    path: '/favorites-section',
-    name: 'FavoritesSection',
-    component: FavoritesSection
-  }
-]
+    path: "/favorites-section",
+    name: "FavoritesSection",
+    component: FavoritesSection,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

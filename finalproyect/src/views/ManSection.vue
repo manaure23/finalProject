@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <section id="manSection">
     <Header/>
     <ManPage/>
     <Footer/>
-  </div>
+  </section>
 
 </template>
 

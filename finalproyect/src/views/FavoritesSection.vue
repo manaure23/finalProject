@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <section id="favoritesSection">
     <Header/>
     <FavoritesPage/>
     <Footer/>
-  </div>
+  </section>
 
 </template>
 

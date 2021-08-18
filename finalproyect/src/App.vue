@@ -1,7 +1,5 @@
 <template>
-  <div id="nav">
   <router-view/>
-  </div>
 </template>
 
 <style>
@@ -10,8 +8,5 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-}
-#nav a.router-link-exact-active {
-  color: blue;
 }
 </style>

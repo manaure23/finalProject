@@ -1,9 +1,9 @@
 <template>
-  <div class="home">
+  <section id="home">
     <Header/>
     <Homepage/>
     <Footer/>
-  </div>
+  </section>
 </template>
 
 <script>

@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <section id="womanSection">
     <Header/>
     <WomanPage/>
     <Footer/>
-  </div>
+  </section>
 
 </template>
 

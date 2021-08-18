@@ -2,72 +2,68 @@
   <div>
     <h2 id="shopping-cart-title">TU CESTA</h2>
     <div id="main">
-        <section id="cart-description">
-            <div class="cart-product">
-              <div class="cart-product-img">
-                <img class="img" src="../assets/Icons/zapatillas.svg" alt="">
-              </div>
-              <div class="cart-product-description">
-                <h4><strong>Marca</strong></h4>
-                <h4>Modelo articulo</h4>
-                <h4>Talla:</h4>
-              </div>
-              <div class="counter">
-                <button class="button-counter">-</button>
-                <p>N</p>
-                <button class="button-counter">+</button>
-              </div>
-            </div>
-            <div class="cart-product">
-              <div class="cart-product-img">
-                <img class="img" src="../assets/Icons/zapatillas.svg" alt="">
-              </div>
-              <div class="cart-product-description">
-                <h4><strong>Marca</strong></h4>
-                <h4>Modelo articulo</h4>
-                <h4>Talla:</h4>
-              </div>
-              <div class="counter">
-                <button class="button-counter">-</button>
-                <p>N</p>
-                <button class="button-counter">+</button>
-              </div>
-            </div>
-            <div class="cart-product">
-              <div class="cart-product-img">
-                <img class="img" src="../assets/Icons/zapatillas.svg" alt="">
-              </div>
-              <div class="cart-product-description">
-                <h4><strong>Marca</strong></h4>
-                <h4>Modelo articulo</h4>
-                <h4>Talla:</h4>
-              </div>
-              <div class="counter">
-                <button class="button-counter">-</button>
-                <p>N</p>
-                <button class="button-counter">+</button>
-              </div>
-            </div>
-        </section>
-        <section id="cart-price">
-          <h3 class="text-cart-price" id="title-total-price"><strong>TOTAL</strong></h3>
-          <h4 class="text-cart-price">Subtotal</h4>
-          <h4 class="text-cart-price">Envio</h4>
-          <h3 class="text-cart-price" id="text-total-price">Total</h3>
-          <button class="checkout"><strong>Tramitar pedido</strong></button>
-        </section>
+      <section id="cart-description">
+        <div class="cart-product">
+          <div class="cart-product-img">
+            <img class="img" src="../assets/Icons/zapatillas.svg" alt="" />
+          </div>
+          <div class="cart-product-description">
+            <h4><strong>Marca</strong></h4>
+            <h4>Modelo articulo</h4>
+            <h4>Talla:</h4>
+          </div>
+          <div class="counter" :class="{ active: isActive }">
+            <button class="button-counter" @click="substract">-</button>
+            <p>{{ numberArticle }}</p>
+            <button class="button-counter" @click="add">+</button>
+          </div>
+        </div>
+      </section>
+      <section id="cart-price">
+        <h3 class="text-cart-price" id="title-total-price">
+          <strong>TOTAL</strong>
+        </h3>
+        <h4 class="text-cart-price">Subtotal</h4>
+        <h4 class="text-cart-price">Envio</h4>
+        <h3 class="text-cart-price" id="text-total-price">Total</h3>
+        <button class="checkout"><strong>Tramitar pedido</strong></button>
+      </section>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
-}
+  data() {
+    return {
+      numberArticle: 1,
+      cartArticles: [],
+      isActive: true,
+    };
+  },
+  methods: {
+    add() {
+      this.numberArticle++;
+    },
+    ocultar() {
+      this.isActive = !this.isActive;
+    },
+    substract() {
+      this.numberArticle--;
+      if (this.numberArticle == 0) {
+        this.ocultar();
+      }
+    },
+  },
+  //Quitar(id){
+  //  this.article.id = id
+  //  this.cartArticles.splice(id, 1)
+  //}
+};
 </script>
 
 <style>
-#shopping-cart-title{
+#shopping-cart-title {
   text-align: left;
   font-size: 40px;
   margin-top: 30px;
@@ -75,20 +71,20 @@ export default {
   letter-spacing: 1px;
   font-style: italic;
 }
-#main{
+#main {
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
   margin-bottom: 50px;
 }
-#cart-description{
+#cart-description {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 20px;
   margin-top: 20px;
 }
-.cart-product{
+.cart-product {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -98,21 +94,24 @@ export default {
   height: 130px;
   border-radius: 10px;
 }
-.cart-product-img{
+.cart-product-img {
   width: 120px;
   height: 150px;
   margin-right: 40px;
 }
-.img{
+.img {
   width: 100px;
   height: 100px;
 }
-.cart-product-description{
+.ocultar {
+  display: none;
+}
+.cart-product-description {
   width: 350px;
   height: 150px;
   text-align: left;
 }
-.counter{
+.counter {
   display: flex;
   justify-content: space-between;
   width: 120px;
@@ -120,16 +119,16 @@ export default {
   text-align: center;
   margin-right: 20px;
 }
-.button-counter{
+.button-counter {
   border-radius: 50%;
   width: 27px;
   height: 27px;
   margin-top: 20px;
 }
-.counter p{
+.counter p {
   margin-top: 20px;
 }
-#cart-price{
+#cart-price {
   width: 450px;
   height: 330px;
   background-color: rgba(90, 90, 250, 0.226);
@@ -138,7 +137,7 @@ export default {
   margin-top: 35px;
   border-radius: 10px;
 }
-.checkout{
+.checkout {
   width: 300px;
   height: 35px;
   background-color: rgba(90, 90, 250, 0.39);
@@ -150,65 +149,76 @@ export default {
   font-size: 20px;
   letter-spacing: 1px;
 }
-.text-cart-price{
+.text-cart-price {
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 10px;
 }
-#text-total-price{
+#text-total-price {
   border-top: 2px solid black;
   padding-top: 10px;
 }
-@media (max-width: 375px){
-  #cart-description{
+@media (max-width: 450px) {
+  #cart-description {
     margin-left: 0px;
   }
-  .cart-product{
+  .cart-product {
     width: 375px;
     justify-content: space-around;
   }
-  .cart-product-img{
+  .cart-product-img {
     width: 80px;
     height: 120px;
     margin-right: 10px;
     margin-left: 10px;
   }
-  .img{
+  .img {
     width: 80px;
   }
-  .cart-product-description{
+  .cart-product-description {
     margin-top: 10px;
     width: 160px;
     height: 120px;
   }
-  .counter{
+  .counter {
     flex-direction: column-reverse;
     justify-content: space-around;
     width: 70px;
     height: 110px;
     margin: 0px;
   }
-  .button-counter{
+  .button-counter {
     margin-top: 5px;
   }
-  .counter p{
+  .counter p {
     text-align: left;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 10px;
   }
-  #shopping-cart-title{
+  #shopping-cart-title {
     margin-left: 0px;
     text-align: center;
   }
-  #cart-price{
+  #cart-price {
     margin-left: 0px;
     width: 375px;
   }
-  .checkout{
+  .checkout {
     margin-left: 20px;
     width: 330px;
   }
 }
-
+@media (min-width: 451px) and (max-width: 968px) {
+  .cart-product {
+    width: 700px;
+  }
+  #cart-price {
+    width: 545px;
+  }
+  .checkout {
+    width: 345px;
+    margin-left: 90px;
+  }
+}
 </style>
