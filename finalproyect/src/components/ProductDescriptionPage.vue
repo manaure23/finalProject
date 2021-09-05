@@ -1,49 +1,52 @@
 <template>
   <section id="product-description">
     <div id="img">
-      <img :src="img" alt="" class="img-main" />
+      <img :src="product.img" alt="" class="img-main" />
     </div>
     <div id="description">
-      <h3 class="text-description">{{ brand }}</h3>
+      <h3 class="text-description">{{ product.brand }}</h3>
       <h2 class="text-description">
-        <strong>{{ name }}</strong>
+        <strong>{{ product.name }}</strong>
       </h2>
-      <h3 class="text-description">{{ price }} €</h3>
-      <h4 class="text-description">Color: {{ color }}</h4>
+      <h3 class="text-description">{{ product.price }} €</h3>
+      <h4 class="text-description">Color: {{ product.color }}</h4>
       <select name="size" id="n-size">
-        <option v-for="size in sizes" :key="size" :value="size">
+        <option v-for="size in product.sizes" :key="size" :value="size">
           {{ size }}
         </option>
       </select>
       <div id="add-favorite">
-        <button id="add">Añadir a la cesta</button>
-        <button id="favorite">
-          <img class="fav-img" src="../assets/Icons/favorite.svg" alt="" />
-        </button>
+        <router-link
+          :to="{
+            name: 'ShoppingCartSection',
+            params: {
+              id: product.id,
+              size: product.size,
+            },
+          }"
+        >
+          <button id="add">Añadir a la cesta</button>
+        </router-link>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import { womanproducts } from "../assets/Data/Products.json";
+import { manproducts } from "../assets/Data/Products.json";
 export default {
   props: ["id"],
 
   data() {
     return {
-      img: this.$route.params.img,
-      brand: this.$route.params.brand,
-      price: this.$route.params.price,
-      color: this.$route.params.color,
-      name: this.$route.params.name,
-      sizes: this.$route.params.sizes,
+      items: [...womanproducts, ...manproducts],
+      product: [],
     };
   },
   mounted() {
-    console.log(this.tallas);
-  },
-  ready: function () {
-    window.beforeUnload(alert("no"));
+    this.product = this.items.find((item) => item.id == this.$route.params.id);
+    console.log(this.product.brand);
   },
 };
 </script>
@@ -80,7 +83,7 @@ export default {
 }
 #add-favorite {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   width: 350px;
   margin-top: 20px;
 }
@@ -130,6 +133,7 @@ export default {
   }
   #add-favorite {
     width: 375;
+    justify-content: center;
   }
   #add {
     margin-left: 15px;
