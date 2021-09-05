@@ -1,31 +1,19 @@
 <template>
-  <div>
-    <header>
-      <div class="principal">
-        <router-link to="/"><h1>nombre empresa</h1></router-link>
-        <nav class="genders">
-          <router-link class="gender-button" to="/man-section"
-            >Hombre</router-link
-          >
-          <router-link class="gender-button" to="/woman-section"
-            >Mujer</router-link
-          >
-        </nav>
-        <ul class="user-buttons">
-          <li>
-            <router-link to="/favorites-section"
-              ><img class="icons" src="../assets/Icons/favorite.svg" alt=""
-            /></router-link>
-          </li>
-          <li>
-            <router-link to="/shopping-cart-section"
-              ><img class="icons" src="../assets/Icons/shoppingCart.svg" alt=""
-            /></router-link>
-          </li>
-        </ul>
-      </div>
-    </header>
-  </div>
+  <header id="header">
+    <div class="main">
+      <router-link to="/"><h1 id="title">TDM</h1> </router-link>
+      <router-link to="/shopping-cart-section"
+        ><img
+          class="icons user-buttons"
+          src="../assets/Icons/shoppingCart.svg"
+          alt=""
+      /></router-link>
+    </div>
+    <nav class="genders">
+      <router-link class="gender-button" to="/man-section">Hombre</router-link>
+      <router-link class="gender-button" to="/woman-section">Mujer</router-link>
+    </nav>
+  </header>
 </template>
 
 <script>
@@ -33,24 +21,37 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String,
+    prop: Object,
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-.principal {
+<style scoped>
+#header {
+  background-color: rgba(90, 90, 250, 0.226);
+}
+.main {
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   background-color: rgba(90, 90, 250, 0.226);
 }
-h1 {
-  width: 350px;
+
+#title {
+  margin-left: 10px;
+  margin-top: 5px;
+  width: 100px;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+#icon {
+  height: 50px;
+  width: 50px;
 }
 .user-buttons {
-  width: 150px;
   display: inline-flex;
   justify-content: space-between;
   margin-top: 10px;
@@ -72,10 +73,10 @@ h1 {
 .gender-button {
   width: 150px;
   height: 40px;
-  margin-top: 7px;
   color: black;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 33px;
+  font-weight: 500;
 }
 .gender-button:hover {
   color: red;
@@ -87,36 +88,31 @@ ul li {
 a {
   text-decoration: none;
 }
-@media (max-width: 450px) {
+@media (max-width: 470px) {
   h1 {
-    width: 414px;
+    width: 365px;
   }
   .genders {
-    width: 190px;
-    margin-left: 10px;
+    width: 260px;
   }
   .gender-button {
-    width: 70px;
+    width: 100px;
   }
   .user-buttons {
-    width: 90px;
+    width: 50px;
   }
   .icons {
     width: 30px;
   }
 }
-@media (min-width: 451px) and (max-width: 968px) {
+@media (min-width: 471px) and (max-width: 968px) {
   h1 {
     width: 768px;
     font-size: 45px;
   }
   .genders {
-    width: 460px;
-    justify-content: space-evenly;
-  }
-  .user-buttons {
-    width: 260px;
-    justify-content: space-evenly;
+    width: 500px;
+    justify-content: space-between;
   }
 }
 </style>
