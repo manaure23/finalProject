@@ -16,17 +16,7 @@
         </option>
       </select>
       <div id="add-favorite">
-        <router-link
-          :to="{
-            name: 'ShoppingCartSection',
-            params: {
-              id: product.id,
-              size: product.size,
-            },
-          }"
-        >
-          <button id="add">Añadir a la cesta</button>
-        </router-link>
+        <button id="add">Añadir a la cesta</button>
       </div>
     </div>
   </section>
@@ -137,6 +127,16 @@ export default {
   }
   #add {
     margin-left: 15px;
+  }
+}
+@media (min-height: 900px) and (max-height: 1000px) {
+  #product-description {
+    height: 650px;
+  }
+}
+@media (min-width: 1900px) and (min-height: 1080px) {
+  #product-description {
+    height: 780px;
   }
 }
 </style>
