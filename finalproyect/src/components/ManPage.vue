@@ -1,36 +1,28 @@
 <template>
   <div>
     <h2 class="h2-titles">Hombre</h2>
-    <nav>
-      <ul class="menu-filter-buttons">
-        <li><button class="filter-button">Camisas</button></li>
-        <li><button class="filter-button">Pantalones</button></li>
-        <li><button class="filter-button">Zapatillas</button></li>
-        <li><button class="filter-button">Abrigos</button></li>
-      </ul>
-      <section id="items">
-        <div v-for="item in items" :key="item" class="product-card">
-          <router-link
-            :to="{
-              name: 'ProductDescriptionSection',
-              params: {
-                id: item.id,
-                img: item.img,
-                brand: item.brand,
-                price: item.price,
-                name: item.name,
-                color: item.color,
-                type: item.type,
-                sizes: item.sizes,
-              },
-            }"
-            ><img :src="item.img" :alt="item.name" class="img-provisional" />
-            <p class="item-name">{{ item.name }}</p>
-            <p class="item-type">{{ item.type }}</p>
-          </router-link>
-        </div>
-      </section>
-    </nav>
+    <select v-model="filter" name="filter" id="filter-options">
+      <option value="all">Todos</option>
+      <option value="zapatillas">Zapatillas</option>
+      <option value="camisetas">Camisas</option>
+      <option value="pantalones">Pantalones</option>
+      <option value="abrigos">Abrigos</option>
+    </select>
+    <section id="items">
+      <div v-for="item in filterArticles" :key="item" class="product-card">
+        <router-link
+          :to="{
+            name: 'ProductDescriptionSection',
+            params: {
+              id: item.id,
+            },
+          }"
+          ><img :src="item.img" :alt="item.name" class="img-product" />
+          <p class="item-name">{{ item.name }}</p>
+          <p class="item-type">{{ item.type }}</p>
+        </router-link>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -41,12 +33,19 @@ export default {
   data() {
     return {
       items: manproducts,
+      filter: "all",
     };
   },
-  mounted() {
-    console.log(this.items);
+  computed: {
+    filterArticles() {
+      let filtered = this.items;
+      let value = this.filter;
+      let filteredItems = filtered.filter((article) => {
+        return value === "all" ? article : article.type === value;
+      });
+      return filteredItems;
+    },
   },
-  methods() {},
 };
 </script>
 
@@ -61,16 +60,9 @@ export default {
   font-size: 40px;
   background-color: rgba(90, 90, 250, 0.13);
 }
-.menu-filter-buttons {
-  display: inline-flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 0px;
-  width: 100%;
-}
-.filter-button {
-  width: 200px;
-  height: 40px;
+#filter-options {
+  padding: 5px 70px;
+  text-align: center;
   border: 1px solid rgba(90, 90, 250, 0.301);
   border-radius: 10px;
   background-color: rgba(90, 90, 250, 0.144);
@@ -86,10 +78,11 @@ export default {
 }
 .product-card {
   text-align: center;
-  width: 250px;
+  width: 235px;
   height: 300px;
   margin-left: 10px;
   margin-right: 20px;
+  margin-top: 10px;
 }
 .product-card:hover {
   border: 1px solid black;
@@ -100,9 +93,9 @@ a {
   color: black;
   font-size: 30px;
 }
-.img-provisional {
-  width: 160px;
-  height: 190px;
+.img-product {
+  width: 210px;
+  height: 230px;
 }
 .item-name {
   font-size: 19px;
