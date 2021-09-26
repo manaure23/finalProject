@@ -15,13 +15,6 @@
             name: 'ProductDescriptionSection',
             params: {
               id: novelty.id,
-              img: novelty.img,
-              brand: novelty.brand,
-              price: novelty.price,
-              name: novelty.name,
-              color: novelty.color,
-              type: novelty.type,
-              sizes: novelty.sizes,
             },
           }"
           ><img
@@ -45,26 +38,18 @@ export default {
   data() {
     return {
       noveltySection: [],
-      items: womanproducts,
-      items2: manproducts,
+      items: [...womanproducts, ...manproducts],
     };
   },
   mounted() {
-    function getNumberRandom(min, max) {
-      return Math.floor(Math.random() * (max - min)) + min;
+    function numberRandom(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
     }
-    for (var i = 0; i < 2; i++) {
-      var a = getNumberRandom(0, 8);
-      console.log(a);
-      console.log(this.items[a]);
-      this.noveltySection.push(this.items[a]);
+    for (var i = 0; i < 4; i++) {
+      var random = numberRandom(0, this.items.length);
+      this.noveltySection.push(this.items[random]);
+      this.items.splice(random, 1);
     }
-    console.log(this.noveltySection);
-    for (var index = 0; index < 2; index++) {
-      var al = getNumberRandom(0, 8);
-      this.noveltySection.push(this.items2[al]);
-    }
-    console.log(this.noveltySection);
   },
 };
 </script>
