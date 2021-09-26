@@ -1,25 +1,27 @@
 <template>
-  <section id="productDescription">
-    <Header/>
-    <ProductDescriptionPage/>
-    <Footer/>
-  </section>
+  <Header />
+  <ProductDescriptionPage />
+  <Footer />
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import ProductDescriptionPage from '@/components/ProductDescriptionPage.vue'
-import Footer from '@/components/Footer.vue'
+import ProductDescriptionPage from "@/components/ProductDescriptionPage.vue";
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 export default {
-  name: 'ProductDescriptionSection',
+  name: "ProductDescriptionSection",
   components: {
-    Header,
     ProductDescriptionPage,
+    Header,
     Footer,
-  }
-}
+  },
+  data() {
+    return {
+      prop: null,
+    };
+  },
+};
 </script>
 
 <style>
-
 </style>

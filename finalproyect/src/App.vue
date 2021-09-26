@@ -1,6 +1,20 @@
 <template>
-  <router-view/>
+  <router-view :key="$route.path" />
 </template>
+
+<script>
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+
+export default {
+  name: "App",
+  componets: {
+    Header,
+    Footer,
+  },
+};
+</script>
+
 
 <style>
 #app {
